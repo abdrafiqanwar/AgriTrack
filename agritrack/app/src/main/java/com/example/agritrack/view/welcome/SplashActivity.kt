@@ -1,15 +1,13 @@
-package com.example.agritrack
+package com.example.agritrack.view.welcome
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.agritrack.MainActivity
+import com.example.agritrack.R
 import com.example.agritrack.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {

@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.agritrack.MainActivity
 import com.example.agritrack.R
 import com.example.agritrack.databinding.ActivitySplashBinding
+import com.example.agritrack.view.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
@@ -26,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
 
         binding.ivLogo.alpha = 0f
         binding.ivLogo.animate().setDuration(2000).alpha(1f).withEndAction {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()

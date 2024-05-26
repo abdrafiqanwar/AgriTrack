@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light">#fffbfceb</color>
+    <color name="light_hover">#fff8fae2</color>
+    <color name="light_active">#fff1f4c2</color>
+    <color name="normal">#ffd2dc3b</color>
+    <color name="normal_hover">#ffbdc635</color>
+    <color name="normal_active">#ffa8b02f</color>
+    <color name="dark">#ff9ea52c</color>
+    <color name="dark_hover">#ff7e8423</color>
+    <color name="dark_active">#ff5e631b</color>
+    <color name="darker">#ff4a4d15</color>
+</resources>

@@ -164,7 +164,4 @@
             android:textSize="12sp"
             android:textColor="@color/darker"/>
     </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

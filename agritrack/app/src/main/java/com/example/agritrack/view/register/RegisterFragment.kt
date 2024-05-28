@@ -34,6 +34,8 @@ class RegisterFragment : Fragment() {
             }
         }
 
+        binding.tvLogin.setOnClickListener{ requireActivity().finish() }
+
         if (arguments != null) {
             val user = arguments?.getString("user")
             binding.tvUser.text = user

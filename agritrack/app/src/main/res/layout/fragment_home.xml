@@ -64,7 +64,7 @@
         android:textAlignment="center"/>
 
     <ImageView
-        android:id="@+id/iv_owner"
+        android:id="@+id/btn_owner"
         android:layout_width="200dp"
         android:layout_height="168dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,12 +74,12 @@
         android:src="@drawable/owner"/>
 
     <ImageView
-        android:id="@+id/iv_consumer"
+        android:id="@+id/btn_consumer"
         android:layout_width="200dp"
         android:layout_height="168dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_owner"
+        app:layout_constraintTop_toBottomOf="@id/btn_owner"
         android:layout_marginTop="24dp"
         android:src="@drawable/consumer"/>
 
@@ -88,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/iv_consumer"
+        app:layout_constraintTop_toBottomOf="@id/btn_consumer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp"

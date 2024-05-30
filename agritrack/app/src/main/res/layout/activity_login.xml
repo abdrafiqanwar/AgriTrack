@@ -30,7 +30,8 @@
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/darker" />
+        android:textColor="@color/darker"
+        android:fontFamily="@font/bold"/>
 
     <TextView
         android:id="@+id/tv_login"
@@ -42,7 +43,8 @@
         android:text="@string/login_to_continue"
         android:textAlignment="center"
         android:textSize="16sp"
-        android:textColor="@color/darker"/>
+        android:textColor="@color/darker"
+        android:fontFamily="@font/medium"/>
 
     <TextView
         android:id="@+id/tv_email"
@@ -55,7 +57,8 @@
         android:layout_marginTop="48dp"
         android:text="@string/email_address"
         android:textSize="16sp"
-        android:textColor="@color/darker"/>
+        android:textColor="@color/darker"
+        android:fontFamily="@font/medium"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_email"
@@ -73,7 +76,8 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:background="@drawable/edit_text"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -87,7 +91,8 @@
         android:layout_marginHorizontal="35dp"
         android:text="@string/password"
         android:textSize="16sp"
-        android:textColor="@color/darker"/>
+        android:textColor="@color/darker"
+        android:fontFamily="@font/medium"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_password"
@@ -106,7 +111,8 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:background="@drawable/edit_text"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -121,7 +127,8 @@
         android:text="@string/forgot_password"
         android:textSize="14sp"
         android:textColor="@color/darker"
-        android:textAlignment="textEnd"/>
+        android:textAlignment="textEnd"
+        android:fontFamily="@font/medium"/>
 
     <com.example.agritrack.view.custom.Button
         android:id="@+id/btn_login"
@@ -135,6 +142,7 @@
         android:text="@string/login"
         android:textSize="16sp"
         android:textColor="@color/white"
+        android:fontFamily="@font/semibold"
         android:background="@drawable/button"/>
 
     <LinearLayout
@@ -146,22 +154,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/don_t_have_an_account"
-            android:textSize="12sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:fontFamily="@font/semibold"/>
 
         <TextView
             android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sign_up_now"
-            android:textSize="12sp"
-            android:textColor="@color/darker"/>
+            android:textColor="@color/darker"
+            android:fontFamily="@font/semibold"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import com.example.agritrack.R
 
-class Button @JvmOverloads constructor(
+class ButtonDarker @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : AppCompatButton(context, attrs) {
 
@@ -17,7 +17,7 @@ class Button @JvmOverloads constructor(
 
     init {
         txtColor = ContextCompat.getColor(context, android.R.color.white)
-        backgroundColor = ContextCompat.getDrawable(context, R.drawable.button) as Drawable
+        backgroundColor = ContextCompat.getDrawable(context, R.drawable.button_darker) as Drawable
     }
 
     override fun onDraw(canvas: Canvas) {

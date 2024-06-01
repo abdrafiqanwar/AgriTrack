@@ -130,7 +130,7 @@
         android:textAlignment="textEnd"
         android:fontFamily="@font/medium"/>
 
-    <com.example.agritrack.view.custom.Button
+    <com.example.agritrack.view.custom.ButtonDarker
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -195,7 +195,7 @@
             android:fontFamily="@font/medium"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.example.agritrack.view.custom.Button
+    <com.example.agritrack.view.custom.ButtonDarker
         android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -206,8 +206,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/sign_up"
         android:textSize="16sp"
-        android:fontFamily="@font/semibold"
-        android:background="@drawable/button"/>
+        android:fontFamily="@font/semibold"/>
 
     <LinearLayout
         android:id="@+id/ll2"

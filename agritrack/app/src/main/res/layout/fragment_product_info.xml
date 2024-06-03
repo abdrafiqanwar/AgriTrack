@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.owner.ProductInfoFragment"
+    android:background="@color/background">
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_text"
+        android:queryHint="Search product"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_item_products"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        tools:listitem="@layout/item_products"
+        tools:itemCount="5"
+        android:layout_marginHorizontal="35dp"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.example.agritrack.view.custom.ButtonDarker
+        android:id="@+id/scan_qr"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="35dp"
+        android:text="@string/scan_qr"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.example.agritrack.view.custom.ButtonDark
+        android:id="@+id/add_product"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_product"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

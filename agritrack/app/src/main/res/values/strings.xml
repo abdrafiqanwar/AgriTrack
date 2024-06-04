@@ -22,4 +22,8 @@
     <string name="commodity_type">Commodity Type</string>
     <string name="submit">Submit</string>
     <string name="reload">Reload</string>
+    <string name="product_category"><![CDATA[<Product Category>]]></string>
+    <string name="product_name"><![CDATA[<Product Name>]]></string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="add_product">Add Product</string>
 </resources>

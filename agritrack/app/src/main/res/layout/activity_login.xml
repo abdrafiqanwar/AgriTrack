@@ -169,5 +169,6 @@
             android:text="@string/sign_up_now"
             android:textColor="@color/darker"
             android:fontFamily="@font/semibold"/>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

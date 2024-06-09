@@ -6,6 +6,7 @@ plugins {
 android {
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     namespace = "com.example.agritrack"
     compileSdk = 34
@@ -18,6 +19,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BASE_URL", "\"https://agritrack-backend-service-tngtr2ferq-et.a.run.app/\"")
     }
 
     buildTypes {
@@ -51,4 +53,14 @@ dependencies {
 
     implementation (libs.androidx.activity.ktx)
     implementation (libs.androidx.fragment.ktx)
+
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+
+    implementation(libs.androidx.datastore.preferences)
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson.v2110)
+    implementation(libs.logging.interceptor)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 }

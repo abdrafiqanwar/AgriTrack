@@ -1,17 +1,25 @@
 package com.example.agritrack.view.register
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.commit
+import androidx.fragment.app.viewModels
 import com.example.agritrack.R
 import com.example.agritrack.databinding.FragmentRegisterBinding
+import com.example.agritrack.di.Result
+import com.example.agritrack.view.ViewModelFactory
 
 class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
+    private val viewModel by viewModels<RegisterViewModel> {
+        ViewModelFactory.getInstance(requireActivity())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +47,50 @@ class RegisterFragment : Fragment() {
         if (arguments != null) {
             val user = arguments?.getString("user")
             binding.tvUser.text = user
+        }
+
+        binding.btnRegister.setOnClickListener {
+            val name = binding.etName.text.toString()
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+
+            if (name.isEmpty()) {
+                error("Please enter your name")
+            }
+
+            viewModel.register(name, email, password, "consumer").observe(requireActivity()) {
+                if (it != null) {
+                    when(it) {
+                        is Result.Loading -> {
+                            binding.progressBar.visibility = View.VISIBLE
+                        }
+                        is Result.Success -> {
+                            binding.progressBar.visibility = View.GONE
+
+                            AlertDialog.Builder(requireActivity()).apply {
+                                setTitle("Registration success")
+                                setPositiveButton("Login") { _, _ ->
+                                    requireActivity().finish()
+                                }
+                                create()
+                                show()
+                            }
+                        }
+                        is Result.Error -> {
+                            binding.progressBar.visibility = View.GONE
+
+                            AlertDialog.Builder(requireActivity()).apply {
+                                setTitle(it.error)
+                                setPositiveButton("Ok") { dialog, _ ->
+                                    dialog.dismiss()
+                                }
+                                create()
+                                show()
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

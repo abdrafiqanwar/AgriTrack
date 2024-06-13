@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    tools:context=".view.owner.AddProductFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:id="@+id/tbImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/edit_text"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="35dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_add_photo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginVertical="16dp"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/insert_photo"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+                <com.example.agritrack.view.custom.ButtonDark
+                    android:id="@+id/btn_takeImage"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginVertical="16dp"
+                    android:text="@string/take_image" />
+
+                <com.example.agritrack.view.custom.ButtonDark
+                    android:id="@+id/btn_browseImage"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/browse_image" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tbImage"
+            android:layout_marginHorizontal="35dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product_namee"
+                android:fontFamily="@font/medium"
+                android:textSize="16sp"
+                android:textColor="@color/darker"/>
+
+            <EditText
+                android:id="@+id/product_name"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:background="@drawable/edit_text"
+                android:hint="@string/your_product_name"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product_origin"
+                android:fontFamily="@font/medium"
+                android:textSize="16sp"
+                android:textColor="@color/darker"/>
+
+            <EditText
+                android:id="@+id/product_origin"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/edit_text"
+                android:hint="@string/your_product_origin"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product_category1"
+                android:fontFamily="@font/medium"
+                android:textSize="16sp"
+                android:textColor="@color/darker"/>
+
+            <Spinner
+                android:id="@+id/product_category"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/edit_text"
+                android:autofillHints="Select the category of product"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product_composition"
+                android:fontFamily="@font/medium"
+                android:textSize="16sp"
+                android:textColor="@color/darker"/>
+
+            <EditText
+                android:id="@+id/product_composition"
+                android:layout_width="match_parent"
+                android:layout_height="114dp"
+                android:background="@drawable/edit_text"
+                android:hint="@string/your_product_composition"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nutrition_facts"
+                android:fontFamily="@font/medium"
+                android:textSize="16sp"
+                android:textColor="@color/darker"/>
+
+            <EditText
+                android:id="@+id/nutrition_facts"
+                android:layout_width="match_parent"
+                android:layout_height="161dp"
+                android:background="@drawable/edit_text"
+                android:hint="@string/nutrition_facts"
+                android:padding="10dp" />
+
+            <com.example.agritrack.view.custom.ButtonDarker
+                android:id="@+id/btn_edit"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/edit"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="24dp"/>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -145,10 +145,10 @@
                 android:padding="10dp" />
 
             <com.example.agritrack.view.custom.ButtonDarker
-                android:id="@+id/btn_add"
+                android:id="@+id/btn_edit"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="@string/add"
+                android:text="@string/edit"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="24dp"/>
 

@@ -35,6 +35,7 @@ class RegisterFragment : Fragment() {
 
         val fragmentManager = parentFragmentManager
         val homeFragment = HomeFragment()
+        var user = ""
 
         binding.btnBack.setOnClickListener{
             fragmentManager.commit {
@@ -45,7 +46,7 @@ class RegisterFragment : Fragment() {
         binding.tvLogin.setOnClickListener{ requireActivity().finish() }
 
         if (arguments != null) {
-            val user = arguments?.getString("user")
+        user = arguments?.getString("user").toString()
             binding.tvUser.text = user
         }
 
@@ -58,7 +59,7 @@ class RegisterFragment : Fragment() {
                 error("Please enter your name")
             }
 
-            viewModel.register(name, email, password, "consumer").observe(requireActivity()) {
+            viewModel.register(name, email, password, user).observe(requireActivity()) {
                 if (it != null) {
                     when(it) {
                         is Result.Loading -> {

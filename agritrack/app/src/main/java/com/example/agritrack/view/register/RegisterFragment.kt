@@ -54,39 +54,42 @@ class RegisterFragment : Fragment() {
             val name = binding.etName.text.toString()
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
+            val confirmPassword = binding.etConfirmPassword.text.toString()
 
             if (name.isEmpty()) {
-                error("Please enter your name")
-            }
-
-            viewModel.register(name, email, password, user).observe(requireActivity()) {
-                if (it != null) {
-                    when(it) {
-                        is Result.Loading -> {
-                            binding.progressBar.visibility = View.VISIBLE
-                        }
-                        is Result.Success -> {
-                            binding.progressBar.visibility = View.GONE
-
-                            AlertDialog.Builder(requireActivity()).apply {
-                                setTitle("Registration success")
-                                setPositiveButton("Login") { _, _ ->
-                                    requireActivity().finish()
-                                }
-                                create()
-                                show()
+                binding.etName.error = "Please enter your name"
+            } else if (password != confirmPassword) {
+                binding.etConfirmPassword.error = "The password confirmation does not match"
+            } else {
+                viewModel.register(name, email, password, user).observe(requireActivity()) {
+                    if (it != null) {
+                        when(it) {
+                            is Result.Loading -> {
+                                binding.progressBar.visibility = View.VISIBLE
                             }
-                        }
-                        is Result.Error -> {
-                            binding.progressBar.visibility = View.GONE
+                            is Result.Success -> {
+                                binding.progressBar.visibility = View.GONE
 
-                            AlertDialog.Builder(requireActivity()).apply {
-                                setTitle(it.error)
-                                setPositiveButton("Ok") { dialog, _ ->
-                                    dialog.dismiss()
+                                AlertDialog.Builder(requireActivity()).apply {
+                                    setTitle("Registration success")
+                                    setPositiveButton("Login") { _, _ ->
+                                        requireActivity().finish()
+                                    }
+                                    create()
+                                    show()
                                 }
-                                create()
-                                show()
+                            }
+                            is Result.Error -> {
+                                binding.progressBar.visibility = View.GONE
+
+                                AlertDialog.Builder(requireActivity()).apply {
+                                    setTitle(it.error)
+                                    setPositiveButton("Ok") { dialog, _ ->
+                                        dialog.dismiss()
+                                    }
+                                    create()
+                                    show()
+                                }
                             }
                         }
                     }

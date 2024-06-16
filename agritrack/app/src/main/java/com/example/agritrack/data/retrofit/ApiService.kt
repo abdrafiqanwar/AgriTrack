@@ -1,5 +1,6 @@
 package com.example.agritrack.data.retrofit
 
+import com.example.agritrack.data.response.LoginResponse
 import com.example.agritrack.data.response.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -14,4 +15,11 @@ interface ApiService {
         @Field("password") password: String,
         @Field("role") role: String
     ) : RegisterResponse
+
+    @FormUrlEncoded
+    @POST("auth/login")
+    suspend fun login(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ) : LoginResponse
 }

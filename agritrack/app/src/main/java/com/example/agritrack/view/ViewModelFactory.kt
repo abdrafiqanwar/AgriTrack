@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.agritrack.di.Injection
 import com.example.agritrack.pref.AuthRepository
+import com.example.agritrack.view.login.LoginViewModel
 import com.example.agritrack.view.register.RegisterViewModel
 
 class ViewModelFactory(
@@ -16,6 +17,9 @@ class ViewModelFactory(
         return when {
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(authRepository) as T
+            }
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(authRepository) as T
             }
             else -> throw IllegalArgumentException("Uknown ViewModel class: " + modelClass.name)
         }

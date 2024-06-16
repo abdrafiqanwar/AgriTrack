@@ -2,7 +2,6 @@ package com.example.agritrack.pref
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import com.example.agritrack.data.response.ErrorResponse
 import com.example.agritrack.data.response.LoginResponse
 import com.example.agritrack.data.response.RegisterResponse
 import com.example.agritrack.data.retrofit.ApiService
@@ -24,7 +23,7 @@ class AuthRepository private constructor(
             emit(Result.Success(response))
         } catch (e: HttpException) {
             val jsonInString = e.response()?.errorBody()?.string()
-            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+            val errorBody = Gson().fromJson(jsonInString, RegisterResponse::class.java)
             val errorMessage = errorBody.message
 
             emit(Result.Error(errorMessage.toString()))
@@ -40,7 +39,7 @@ class AuthRepository private constructor(
             emit(Result.Success(response))
         } catch (e: HttpException) {
             val jsonInString = e.response()?.errorBody()?.string()
-            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+            val errorBody = Gson().fromJson(jsonInString, LoginResponse::class.java)
             val errorMessage = errorBody.message
 
             emit(Result.Error(errorMessage.toString()))

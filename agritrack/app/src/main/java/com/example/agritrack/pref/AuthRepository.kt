@@ -8,6 +8,7 @@ import com.example.agritrack.data.response.RegisterResponse
 import com.example.agritrack.data.retrofit.ApiService
 import com.example.agritrack.di.Result
 import com.google.gson.Gson
+import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException
 
 class AuthRepository private constructor(
@@ -44,6 +45,16 @@ class AuthRepository private constructor(
 
             emit(Result.Error(errorMessage.toString()))
         }
+    }
+
+    suspend fun saveSession(user: UserModel) {
+        authPreference.saveSession(user)
+    }
+
+    fun getSession(): Flow<UserModel> = authPreference.getSession()
+
+    suspend fun logout() {
+        authPreference.logout()
     }
 
     companion object {

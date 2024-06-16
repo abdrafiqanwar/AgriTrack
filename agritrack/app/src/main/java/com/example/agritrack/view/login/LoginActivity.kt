@@ -35,6 +35,15 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
+        viewModel.getSession().observe(this) {
+            if (it.isLogin) {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                finish()
+            }
+        }
+
         binding.tvRegister.setOnClickListener{
             startActivity(Intent(this, RegisterActivity::class.java))
         }
@@ -60,6 +69,10 @@ class LoginActivity : AppCompatActivity() {
                                 binding.btnLogin.isEnabled = true
 
                                 val response = it.data
+                                val token = response.token.toString()
+                                val role = response.role.toString()
+
+                                viewModel.saveSession(token, role)
 
                                 val intent = Intent(this, MainActivity::class.java)
                                 startActivity(intent)

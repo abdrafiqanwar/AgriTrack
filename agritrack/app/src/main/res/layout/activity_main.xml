@@ -8,6 +8,13 @@
     android:background="@color/background"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="logout"/>
+
     <ImageView
         android:id="@+id/bg_bottom_nav"
         android:layout_width="match_parent"

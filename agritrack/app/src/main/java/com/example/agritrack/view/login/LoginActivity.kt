@@ -62,11 +62,12 @@ class LoginActivity : AppCompatActivity() {
                         when (it) {
                             is Result.Loading -> {
                                 binding.progressBar.visibility = View.VISIBLE
-                                binding.btnLogin.isEnabled = false
+                                binding.btnLogin.visibility = View.GONE
+                                binding.ll.visibility = View.GONE
+                                binding.tvForgot.visibility = View.GONE
                             }
                             is Result.Success -> {
                                 binding.progressBar.visibility = View.GONE
-                                binding.btnLogin.isEnabled = true
 
                                 val response = it.data
                                 val token = response.token.toString()
@@ -80,7 +81,9 @@ class LoginActivity : AppCompatActivity() {
                             }
                             is Result.Error -> {
                                 binding.progressBar.visibility = View.GONE
-                                binding.btnLogin.isEnabled = true
+                                binding.btnLogin.visibility = View.VISIBLE
+                                binding.ll.visibility = View.VISIBLE
+                                binding.tvForgot.visibility = View.VISIBLE
 
                                 AlertDialog.Builder(this).apply {
                                     setTitle(it.error)

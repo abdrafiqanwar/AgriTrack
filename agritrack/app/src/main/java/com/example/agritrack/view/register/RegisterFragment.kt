@@ -66,11 +66,13 @@ class RegisterFragment : Fragment() {
                         when(it) {
                             is Result.Loading -> {
                                 binding.progressBar.visibility = View.VISIBLE
-                                binding.btnRegister.isEnabled = false
+                                binding.btnRegister.visibility = View.GONE
+                                binding.ll2.visibility = View.GONE
                             }
                             is Result.Success -> {
                                 binding.progressBar.visibility = View.GONE
-                                binding.btnRegister.isEnabled = true
+                                binding.btnRegister.visibility = View.VISIBLE
+                                binding.ll2.visibility = View.VISIBLE
 
                                 AlertDialog.Builder(requireActivity()).apply {
                                     setTitle("Registration success")
@@ -83,7 +85,8 @@ class RegisterFragment : Fragment() {
                             }
                             is Result.Error -> {
                                 binding.progressBar.visibility = View.GONE
-                                binding.btnRegister.isEnabled = true
+                                binding.btnRegister.visibility = View.VISIBLE
+                                binding.ll2.visibility = View.VISIBLE
 
                                 AlertDialog.Builder(requireActivity()).apply {
                                     setTitle(it.error)

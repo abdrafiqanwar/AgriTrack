@@ -3,18 +3,17 @@ package com.example.agritrack.view.login
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.agritrack.MainActivity
 import com.example.agritrack.R
 import com.example.agritrack.databinding.ActivityLoginBinding
 import com.example.agritrack.di.Result
 import com.example.agritrack.view.ViewModelFactory
+import com.example.agritrack.view.owner.MainActivity
 import com.example.agritrack.view.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {

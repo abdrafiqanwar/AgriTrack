@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/product"
+        android:icon="@drawable/product"
+        android:title="Products"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/forecast"
+        android:icon="@drawable/forecast"
+        android:title="Price Forecast"
+        app:showAsAction="always"/>
+</menu>

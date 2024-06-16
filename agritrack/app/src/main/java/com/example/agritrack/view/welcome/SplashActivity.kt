@@ -6,7 +6,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.agritrack.MainActivity
 import com.example.agritrack.R
 import com.example.agritrack.databinding.ActivitySplashBinding
 import com.example.agritrack.view.login.LoginActivity

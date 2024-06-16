@@ -43,6 +43,7 @@
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginVertical="16dp"
+                    android:drawableStart="@drawable/take_image"
                     android:text="@string/take_image" />
 
                 <com.example.agritrack.view.custom.ButtonDark
@@ -50,6 +51,7 @@
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="16dp"
+                    android:drawableStart="@drawable/browse_image"
                     android:text="@string/browse_image" />
             </LinearLayout>
         </LinearLayout>
@@ -78,7 +80,8 @@
             android:background="@drawable/edit_text"
             android:hint="@string/your_product_name"
             android:textColor="@color/black"
-            android:fontFamily="@font/medium" />
+            android:fontFamily="@font/medium"
+            android:inputType="text"/>
 
         <TextView
             android:id="@+id/tv_origin"
@@ -104,7 +107,8 @@
             android:background="@drawable/edit_text"
             android:hint="@string/your_product_origin"
             android:textColor="@color/black"
-            android:fontFamily="@font/medium"/>
+            android:fontFamily="@font/medium"
+            android:inputType="text"/>
 
         <TextView
             android:id="@+id/tv_category"
@@ -154,7 +158,7 @@
             android:background="@drawable/edit_text"
             android:textColor="@color/black"
             android:fontFamily="@font/medium"
-            android:hint="@string/your_product_composition" />
+            android:hint="@string/your_product_composition"/>
 
         <TextView
             android:id="@+id/tv_nutrition_facts"

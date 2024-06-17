@@ -10,10 +10,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
         android:background="@color/background">
 
         <LinearLayout
-            android:id="@+id/tbImage"
+            android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +22,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/edit_text"
             android:layout_marginTop="24dp"
-            android:layout_marginHorizontal="35dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -39,119 +39,162 @@
                 android:orientation="vertical">
 
                 <com.example.agritrack.view.custom.ButtonDark
-                    android:id="@+id/btn_takeImage"
+                    android:id="@+id/btn_camera"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginVertical="16dp"
+                    android:drawableStart="@drawable/take_image"
                     android:text="@string/take_image" />
 
                 <com.example.agritrack.view.custom.ButtonDark
-                    android:id="@+id/btn_browseImage"
+                    android:id="@+id/btn_gallery"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:layout_marginBottom="16dp"
+                    android:drawableStart="@drawable/browse_image"
                     android:text="@string/browse_image" />
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_product"
+        <TextView
+            android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tbImage"
-            android:layout_marginHorizontal="35dp"
-            android:orientation="vertical">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="@string/product_namee"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/product_namee"
-                android:fontFamily="@font/medium"
-                android:textSize="16sp"
-                android:textColor="@color/darker"/>
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
+            android:background="@drawable/edit_text"
+            android:hint="@string/your_product_name"
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"
+            android:inputType="text"/>
 
-            <EditText
-                android:id="@+id/product_name"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:background="@drawable/edit_text"
-                android:hint="@string/your_product_name"
-                android:padding="10dp" />
+        <TextView
+            android:id="@+id/tv_origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"
+            android:text="@string/product_origin"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/product_origin"
-                android:fontFamily="@font/medium"
-                android:textSize="16sp"
-                android:textColor="@color/darker"/>
+        <EditText
+            android:id="@+id/et_origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_origin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
+            android:background="@drawable/edit_text"
+            android:hint="@string/your_product_origin"
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"
+            android:inputType="text"/>
 
-            <EditText
-                android:id="@+id/product_origin"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/edit_text"
-                android:hint="@string/your_product_origin"
-                android:padding="10dp" />
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_origin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"
+            android:text="@string/product_category1"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/product_category1"
-                android:fontFamily="@font/medium"
-                android:textSize="16sp"
-                android:textColor="@color/darker"/>
+        <Spinner
+            android:id="@+id/spin_category"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_category"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
+            android:background="@drawable/edit_text"
+            android:autofillHints="Select the category of product" />
 
-            <Spinner
-                android:id="@+id/product_category"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/edit_text"
-                android:autofillHints="Select the category of product"
-                android:padding="10dp" />
+        <TextView
+            android:id="@+id/tv_composition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/spin_category"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"
+            android:text="@string/product_composition"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/product_composition"
-                android:fontFamily="@font/medium"
-                android:textSize="16sp"
-                android:textColor="@color/darker"/>
+        <EditText
+            android:id="@+id/et_composition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_composition"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
+            android:background="@drawable/edit_text"
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"
+            android:hint="@string/your_product_composition"/>
 
-            <EditText
-                android:id="@+id/product_composition"
-                android:layout_width="match_parent"
-                android:layout_height="114dp"
-                android:background="@drawable/edit_text"
-                android:hint="@string/your_product_composition"
-                android:padding="10dp" />
+        <TextView
+            android:id="@+id/tv_nutrition_facts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_composition"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"
+            android:text="@string/nutrition_facts"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nutrition_facts"
-                android:fontFamily="@font/medium"
-                android:textSize="16sp"
-                android:textColor="@color/darker"/>
+        <EditText
+            android:id="@+id/et_nutrition_facts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_nutrition_facts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
+            android:background="@drawable/edit_text"
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"
+            android:hint="@string/nutrition_facts" />
 
-            <EditText
-                android:id="@+id/nutrition_facts"
-                android:layout_width="match_parent"
-                android:layout_height="161dp"
-                android:background="@drawable/edit_text"
-                android:hint="@string/nutrition_facts"
-                android:padding="10dp" />
-
-            <com.example.agritrack.view.custom.ButtonDarker
-                android:id="@+id/btn_edit"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="@string/edit"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="24dp"/>
-
-        </LinearLayout>
+        <com.example.agritrack.view.custom.ButtonDarker
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_nutrition_facts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/edit"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

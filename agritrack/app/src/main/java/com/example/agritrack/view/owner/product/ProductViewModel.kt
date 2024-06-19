@@ -7,4 +7,6 @@ import kotlinx.coroutines.launch
 
 class ProductViewModel(private val repository: OwnerRepository) : ViewModel(){
     fun getUserProducts() = repository.getUserProducts()
+
+    fun getProductCategory() = repository.getProductCategory()
 }

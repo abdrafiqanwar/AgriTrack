@@ -42,4 +42,6 @@
     <string name="product_id">Product ID</string>
     <string name="search_product_with_id">Search product with ID</string>
     <string name="search">Search</string>
+    <string name="select_the_category_of_product">Select the category of product</string>
+    <string name="your_product_id">Your product ID</string>
 </resources>

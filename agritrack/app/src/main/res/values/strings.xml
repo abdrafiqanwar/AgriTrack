@@ -39,4 +39,7 @@
     <string name="nutrition_facts">Nutrition Facts</string>
     <string name="add">Add</string>
     <string name="edit">Edit</string>
+    <string name="product_id">Product ID</string>
+    <string name="search_product_with_id">Search product with ID</string>
+    <string name="search">Search</string>
 </resources>

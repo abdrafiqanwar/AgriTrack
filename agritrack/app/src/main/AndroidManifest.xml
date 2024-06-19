@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AgriTrack"
         tools:targetApi="31">
         <activity
+            android:name=".view.consumer.SearchProductInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.owner.MainActivity"
             android:exported="false" />
         <activity

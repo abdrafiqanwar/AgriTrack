@@ -1,9 +1,11 @@
 package com.example.agritrack.data.retrofit
 
 import com.example.agritrack.data.response.LoginResponse
+import com.example.agritrack.data.response.ProductResponse
 import com.example.agritrack.data.response.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiService {
@@ -22,4 +24,7 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ) : LoginResponse
+
+    @GET("products/get-user-products")
+    suspend fun getUserProducts() : ProductResponse
 }

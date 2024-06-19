@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.example.agritrack.R
 import com.example.agritrack.databinding.ActivityMainBinding
+import com.example.agritrack.view.owner.forecasting.ForecastingFragment
+import com.example.agritrack.view.owner.product.ProductInfoFragment
 
 class MainActivity : AppCompatActivity() {
 

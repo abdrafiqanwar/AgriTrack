@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
-    tools:context=".view.owner.ForecastingFragment">
+    tools:context=".view.owner.forecasting.ForecastingFragment">
 
     <TextView
         android:id="@+id/tv_commodity_type"

@@ -57,10 +57,37 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tv_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/ll"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="@string/product_id"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
+
+        <EditText
+            android:id="@+id/et_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
+            android:background="@drawable/edit_text"
+            android:hint="@string/your_product_id"
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"
+            android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_id"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
@@ -124,9 +151,9 @@
             android:textColor="@color/darker"/>
 
         <Spinner
-            android:id="@+id/spin_category"
+            android:id="@+id/category"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tv_category"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -138,7 +165,7 @@
             android:id="@+id/tv_composition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/spin_category"
+            app:layout_constraintTop_toBottomOf="@id/category"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="4dp"

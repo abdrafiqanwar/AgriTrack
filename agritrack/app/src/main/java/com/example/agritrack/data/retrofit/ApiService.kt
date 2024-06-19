@@ -1,6 +1,7 @@
 package com.example.agritrack.data.retrofit
 
 import com.example.agritrack.data.response.LoginResponse
+import com.example.agritrack.data.response.ProductCategoryResponse
 import com.example.agritrack.data.response.ProductResponse
 import com.example.agritrack.data.response.RegisterResponse
 import retrofit2.http.Field
@@ -27,4 +28,7 @@ interface ApiService {
 
     @GET("products/get-user-products")
     suspend fun getUserProducts() : ProductResponse
+
+    @GET("products/get-products-categories")
+    suspend fun getProductCategories() : ProductCategoryResponse
 }

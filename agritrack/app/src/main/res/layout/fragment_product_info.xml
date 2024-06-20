@@ -6,6 +6,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.owner.product.ProductInfoFragment"
     android:background="@color/background">
+    
+    <RelativeLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="10dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/semibold"
+            android:layout_centerInParent="true"
+            android:textSize="16sp"
+            android:textColor="@color/dark"
+            android:text="@string/product_information"/>
+
+        <TextView
+            android:id="@+id/tv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/regular"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/logout"/>
+
+    </RelativeLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -17,17 +49,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"/>
 
-    <SearchView
+    <EditText
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:drawableEnd="@drawable/search"
+        android:padding="10dp"
         android:layout_marginHorizontal="35dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/edit_text"
-        android:queryHint="Search product"/>
+        android:fontFamily="@font/medium"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:hint="@string/search_product"
+        android:background="@drawable/edit_text"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_item_products"
@@ -42,24 +79,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/add_product"/>
 
-    <com.example.agritrack.view.custom.ButtonDarker
-        android:id="@+id/scan_qr"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="35dp"
-        android:text="@string/scan_qr"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
     <com.example.agritrack.view.custom.ButtonDark
         android:id="@+id/add_product"
-        android:layout_width="160dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_product"
         android:layout_marginBottom="20dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginHorizontal="35dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 

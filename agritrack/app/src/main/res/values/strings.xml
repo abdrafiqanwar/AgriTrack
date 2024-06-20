@@ -44,4 +44,7 @@
     <string name="search">Search</string>
     <string name="select_the_category_of_product">Select the category of product</string>
     <string name="your_product_id">Your product ID</string>
+    <string name="search_product">Search product</string>
+    <string name="product_information">Product Information</string>
+    <string name="logout">Logout</string>
 </resources>

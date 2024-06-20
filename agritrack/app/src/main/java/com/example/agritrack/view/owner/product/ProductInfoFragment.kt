@@ -1,5 +1,6 @@
 package com.example.agritrack.view.owner.product
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,11 +16,16 @@ import com.example.agritrack.data.response.ProductsItem
 import com.example.agritrack.databinding.FragmentProductInfoBinding
 import com.example.agritrack.di.Result
 import com.example.agritrack.view.ViewModelFactory
+import com.example.agritrack.view.login.LoginActivity
+import com.example.agritrack.view.login.LoginViewModel
 
 class ProductInfoFragment : Fragment() {
 
     private lateinit var binding: FragmentProductInfoBinding
     private val viewModel by viewModels<ProductViewModel> {
+        ViewModelFactory.getInstance(requireActivity())
+    }
+    private val userViewModel by viewModels<LoginViewModel> {
         ViewModelFactory.getInstance(requireActivity())
     }
 
@@ -41,6 +47,13 @@ class ProductInfoFragment : Fragment() {
 
         val fragmentManager = parentFragmentManager
         val addProductFragment = AddProductFragment()
+
+        binding.tvLogout.setOnClickListener{
+            userViewModel.logout()
+            val intent = Intent(requireActivity(), LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
 
         binding.addProduct.setOnClickListener {
             fragmentManager.commit {

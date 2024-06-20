@@ -1,5 +1,6 @@
 package com.example.agritrack.view.consumer
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -14,11 +15,16 @@ import com.example.agritrack.R
 import com.example.agritrack.databinding.ActivitySearchProductInfoBinding
 import com.example.agritrack.di.Result
 import com.example.agritrack.view.ViewModelFactory
+import com.example.agritrack.view.login.LoginActivity
+import com.example.agritrack.view.login.LoginViewModel
 
 class SearchProductInfoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySearchProductInfoBinding
     private val viewModel by viewModels<ProductViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
+    private val userViewModel by viewModels<LoginViewModel> {
         ViewModelFactory.getInstance(this)
     }
 
@@ -35,6 +41,13 @@ class SearchProductInfoActivity : AppCompatActivity() {
         binding.rvSearch.layoutManager = LinearLayoutManager(this)
         val adapter = ProductAdapter()
         binding.rvSearch.adapter = adapter
+
+        binding.tvLogout.setOnClickListener {
+            userViewModel.logout()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         binding.btnSearch.setOnClickListener {
 

@@ -1,5 +1,6 @@
 package com.example.agritrack.data.retrofit
 
+import com.example.agritrack.data.response.AddProductResponse
 import com.example.agritrack.data.response.LoginResponse
 import com.example.agritrack.data.response.ProductCategoryResponse
 import com.example.agritrack.data.response.ProductResponse
@@ -31,4 +32,15 @@ interface ApiService {
 
     @GET("products/get-products-categories")
     suspend fun getProductCategories() : ProductCategoryResponse
+
+    @FormUrlEncoded
+    @POST("products/post-products")
+    suspend fun postProduct(
+        @Field("productId") productId: String,
+        @Field("productName") productName: String,
+        @Field("productOrigin") productOrigin: String,
+        @Field("productCategory") productCategory: String,
+        @Field("productComposition") productComposition: String,
+        @Field("nutritionFacts") nutritionFacts: String
+    ) : AddProductResponse
 }

@@ -2,6 +2,7 @@ package com.example.agritrack.pref
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import com.example.agritrack.data.response.AddProductResponse
 import com.example.agritrack.data.response.LoginResponse
 import com.example.agritrack.data.response.ProductCategoryItem
 import com.example.agritrack.data.response.ProductResponse
@@ -47,6 +48,22 @@ class OwnerRepository private constructor(
         } catch (e: HttpException) {
             val jsonInString = e.response()?.errorBody()?.string()
             val errorBody = Gson().fromJson(jsonInString, ProductResponse::class.java)
+            val errorMessage = errorBody.message
+
+            emit(Result.Error(errorMessage.toString()))
+        }
+    }
+
+    fun postProduct(productId: String, productName: String, productOrigin: String, productCategory: String, productComposition: String, nutritionFacts: String): LiveData<Result<AddProductResponse>> = liveData {
+        emit(Result.Loading)
+
+        try {
+            val response = apiService.postProduct(productId, productName, productOrigin, productCategory, productComposition, nutritionFacts)
+
+            emit(Result.Success(response))
+        } catch (e: HttpException) {
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, AddProductResponse::class.java)
             val errorMessage = errorBody.message
 
             emit(Result.Error(errorMessage.toString()))

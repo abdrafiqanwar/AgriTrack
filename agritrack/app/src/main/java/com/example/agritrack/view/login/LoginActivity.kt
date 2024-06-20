@@ -13,6 +13,7 @@ import com.example.agritrack.R
 import com.example.agritrack.databinding.ActivityLoginBinding
 import com.example.agritrack.di.Result
 import com.example.agritrack.view.ViewModelFactory
+import com.example.agritrack.view.consumer.SearchProductInfoActivity
 import com.example.agritrack.view.owner.MainActivity
 import com.example.agritrack.view.register.RegisterActivity
 
@@ -36,10 +37,17 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.getSession().observe(this) {
             if (it.isLogin) {
-                val intent = Intent(this, MainActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-                finish()
+                if (it.role == "Business Owner") {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
+                    finish()
+                } else if (it.role == "Consumer") {
+                    val intent = Intent(this, SearchProductInfoActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
+                    finish()
+                }
             }
         }
 
@@ -74,9 +82,16 @@ class LoginActivity : AppCompatActivity() {
 
                                 viewModel.saveSession(token, role)
 
-                                val intent = Intent(this, MainActivity::class.java)
-                                startActivity(intent)
-                                finish()
+                                if (role == "Business Owner") {
+                                    val intent = Intent(this, MainActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                } else if (role == "Consumer") {
+                                    val intent = Intent(this, SearchProductInfoActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }
+
                             }
                             is Result.Error -> {
                                 binding.progressBar.visibility = View.GONE

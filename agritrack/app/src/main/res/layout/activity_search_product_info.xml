@@ -34,6 +34,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_productId"
+            app:layout_constraintBottom_toTopOf="@id/rv_search"
             android:layout_marginHorizontal="35dp">
             
             <EditText
@@ -69,6 +70,7 @@
             tools:itemCount="5"/>
 
         <ProgressBar
+            android:id="@+id/progressBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"

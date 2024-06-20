@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.agritrack.data.retrofit.ApiConfig
 import com.example.agritrack.pref.AuthPreference
 import com.example.agritrack.pref.AuthRepository
+import com.example.agritrack.pref.ConsumerRepository
 import com.example.agritrack.pref.OwnerRepository
 import com.example.agritrack.pref.dataStore
 import kotlinx.coroutines.flow.first
@@ -22,5 +23,12 @@ object Injection {
         val user = runBlocking { pref.getSession().first() }
         val apiService = ApiConfig.getApiService(user.token)
         return OwnerRepository.getInstance(apiService, pref)
+    }
+
+    fun provideConsumerRepository(context: Context) : ConsumerRepository {
+        val pref = AuthPreference.getInstance(context.dataStore)
+        val user = runBlocking { pref.getSession().first() }
+        val apiService = ApiConfig.getApiService(user.token)
+        return ConsumerRepository.getInstance(apiService, pref)
     }
 }

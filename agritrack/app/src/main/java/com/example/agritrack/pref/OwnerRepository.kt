@@ -1,11 +1,13 @@
 package com.example.agritrack.pref
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.example.agritrack.data.response.AddProductResponse
 import com.example.agritrack.data.response.CommodityTypeItem
 import com.example.agritrack.data.response.EditProductResponse
 import com.example.agritrack.data.response.LoginResponse
+import com.example.agritrack.data.response.PredictResponse
 import com.example.agritrack.data.response.ProductCategoryItem
 import com.example.agritrack.data.response.ProductResponse
 import com.example.agritrack.data.response.ProductsItem
@@ -102,6 +104,32 @@ class OwnerRepository private constructor(
             val errorMessage = errorBody.message
 
             emit(Result.Error(errorMessage.toString()))
+        }
+    }
+
+    fun getPrediction(commodityType: String): LiveData<Result<List<Double>>> = liveData {
+        emit(Result.Loading)
+
+        try {
+            val requestBody = mapOf("commodityType" to commodityType)
+            val response = apiService.getPrediction(requestBody)
+            val predictionData = response.predictionData
+            if (predictionData != null) {
+                Log.d("OwnerRepository", "Prediction data received: $predictionData")
+                emit(Result.Success(predictionData))
+            } else {
+                Log.e("OwnerRepository", "Prediction data is null")
+                emit(Result.Error("Prediction data is null"))
+            }
+        } catch (e: HttpException) {
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, PredictResponse::class.java)
+            val errorMessage = errorBody.toString()
+            Log.e("OwnerRepository", "HTTP Exception: $errorMessage")
+            emit(Result.Error(errorMessage))
+        } catch (e: Exception) {
+            Log.e("OwnerRepository", "Exception: ${e.message}")
+            emit(Result.Error(e.message ?: "Unknown error"))
         }
     }
 

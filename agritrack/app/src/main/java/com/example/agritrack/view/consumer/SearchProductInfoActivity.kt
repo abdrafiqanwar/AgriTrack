@@ -20,9 +20,6 @@ import com.example.agritrack.di.Result
 import com.example.agritrack.view.ViewModelFactory
 import com.example.agritrack.view.login.LoginViewModel
 import com.example.agritrack.view.login.LoginActivity
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
 
 class SearchProductInfoActivity : AppCompatActivity() {
 

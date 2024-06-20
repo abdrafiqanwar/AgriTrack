@@ -4,10 +4,13 @@ import com.example.agritrack.data.response.AddProductResponse
 import com.example.agritrack.data.response.CommodityTypeResponse
 import com.example.agritrack.data.response.EditProductResponse
 import com.example.agritrack.data.response.LoginResponse
+import com.example.agritrack.data.response.PredictResponse
 import com.example.agritrack.data.response.ProductCategoryResponse
 import com.example.agritrack.data.response.ProductResponse
 import com.example.agritrack.data.response.RegisterResponse
 import com.example.agritrack.data.response.ProductsItem
+import okhttp3.RequestBody
+import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -70,4 +73,9 @@ interface ApiService {
 
     @GET("forecast/get-allTypes")
     suspend fun getCommodityTypes() : CommodityTypeResponse
+
+    @POST("forecast/predict")
+    suspend fun getPrediction(
+        @Body requestBody: Map<String, String>
+    ) : PredictResponse
 }

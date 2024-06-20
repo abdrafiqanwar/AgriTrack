@@ -5,4 +5,6 @@ import com.example.agritrack.pref.OwnerRepository
 
 class ForecastingViewModel(private val repository: OwnerRepository) : ViewModel() {
     fun getCommodityTypes() = repository.getCommodityTypes()
+
+    fun getPrediction(commodityType: String) = repository.getPrediction(commodityType)
 }

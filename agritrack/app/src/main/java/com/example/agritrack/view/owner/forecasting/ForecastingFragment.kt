@@ -44,8 +44,14 @@ class ForecastingFragment : Fragment() {
         viewModel.getCommodityTypes().observe(requireActivity()) {
             if (it != null) {
                 when (it) {
-                    is Result.Loading -> {}
+                    is Result.Loading -> {
+                        binding.pbCategory.visibility = View.VISIBLE
+                        binding.category.visibility = View.GONE
+                    }
                     is Result.Success -> {
+                        binding.pbCategory.visibility = View.GONE
+                        binding.category.visibility = View.VISIBLE
+
                         val list = mutableListOf<String>()
 
                         for (i in it.data) {
@@ -56,6 +62,9 @@ class ForecastingFragment : Fragment() {
                         binding.category.adapter = arrayAdapter
                     }
                     is Result.Error -> {
+                        binding.pbCategory.visibility = View.GONE
+                        binding.category.visibility = View.VISIBLE
+
                         Toast.makeText(requireActivity(), it.error, Toast.LENGTH_LONG).show()
                     }
                 }

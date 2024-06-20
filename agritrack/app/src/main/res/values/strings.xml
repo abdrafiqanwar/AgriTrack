@@ -47,4 +47,5 @@
     <string name="search_product">Search product</string>
     <string name="product_information">Product Information</string>
     <string name="logout">Logout</string>
+    <string name="price_forecasting">Price Forecasting</string>
 </resources>

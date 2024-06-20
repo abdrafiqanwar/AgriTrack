@@ -78,6 +78,12 @@ class EditProductFragment : Fragment() {
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
 
+        binding.tvBack.setOnClickListener {
+            fragmentManager.commit {
+                replace(R.id.frame_container, productInfoFragment, ProductInfoFragment::class.java.simpleName)
+            }
+        }
+
         binding.btnSubmit.setOnClickListener {
             val id = binding.etId.text.toString()
             val name = binding.etName.text.toString()

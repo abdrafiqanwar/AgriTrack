@@ -1,5 +1,6 @@
 package com.example.agritrack.view.owner.forecasting
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,12 +13,17 @@ import com.example.agritrack.R
 import com.example.agritrack.databinding.FragmentForecastingBinding
 import com.example.agritrack.di.Result
 import com.example.agritrack.view.ViewModelFactory
+import com.example.agritrack.view.login.LoginActivity
+import com.example.agritrack.view.login.LoginViewModel
 import com.example.agritrack.view.owner.product.ProductViewModel
 
 class ForecastingFragment : Fragment() {
 
     private lateinit var binding: FragmentForecastingBinding
     private val viewModel by viewModels<ForecastingViewModel> {
+        ViewModelFactory.getInstance(requireActivity())
+    }
+    private val userViewModel by viewModels<LoginViewModel> {
         ViewModelFactory.getInstance(requireActivity())
     }
     override fun onCreateView(
@@ -59,6 +65,13 @@ class ForecastingFragment : Fragment() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {}
+        }
+
+        binding.tvLogout.setOnClickListener{
+            userViewModel.logout()
+            val intent = Intent(requireActivity(), LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
         }
     }
 }

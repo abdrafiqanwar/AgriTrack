@@ -71,7 +71,6 @@ class LoginActivity : AppCompatActivity() {
                                 binding.progressBar.visibility = View.VISIBLE
                                 binding.btnLogin.visibility = View.GONE
                                 binding.ll.visibility = View.GONE
-                                binding.tvForgot.visibility = View.GONE
                             }
                             is Result.Success -> {
                                 binding.progressBar.visibility = View.GONE
@@ -97,7 +96,6 @@ class LoginActivity : AppCompatActivity() {
                                 binding.progressBar.visibility = View.GONE
                                 binding.btnLogin.visibility = View.VISIBLE
                                 binding.ll.visibility = View.VISIBLE
-                                binding.tvForgot.visibility = View.VISIBLE
 
                                 AlertDialog.Builder(this).apply {
                                     setTitle(it.error)

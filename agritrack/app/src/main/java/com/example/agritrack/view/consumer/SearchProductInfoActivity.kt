@@ -136,14 +136,6 @@ class SearchProductInfoActivity : AppCompatActivity() {
     }
 
     private fun showAlert(message: String) {
-        AlertDialog.Builder(this).apply {
-            setTitle("Error")
-            setMessage(message)
-            setPositiveButton("Ok") { dialog, _ ->
-                dialog.dismiss()
-            }
-            create()
-            show()
-        }
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 }

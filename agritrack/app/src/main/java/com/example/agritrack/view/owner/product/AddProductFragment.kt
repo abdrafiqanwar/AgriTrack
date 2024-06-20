@@ -57,7 +57,9 @@ class AddProductFragment : Fragment() {
                         val arrayAdapter = ArrayAdapter(requireActivity(), R.layout.item_dropdown, list)
                         binding.category.adapter = arrayAdapter
                     }
-                    is Result.Error -> {}
+                    is Result.Error -> {
+                        Toast.makeText(requireActivity(), it.error, Toast.LENGTH_LONG).show()
+                    }
                 }
             }
         }

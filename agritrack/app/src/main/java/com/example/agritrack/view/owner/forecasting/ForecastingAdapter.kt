@@ -16,7 +16,7 @@ class ForecastingAdapter(private val predictions: List<Double>) :
     }
 
     override fun onBindViewHolder(holder: PredictionViewHolder, position: Int) {
-        holder.bind(predictions[position])
+        holder.bind(predictions[position], position + 1)
     }
 
     override fun getItemCount(): Int = predictions.size
@@ -24,8 +24,9 @@ class ForecastingAdapter(private val predictions: List<Double>) :
     inner class PredictionViewHolder(private val binding: ItemPredictionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(prediction: Double) {
+        fun bind(prediction: Double, day: Int) {
             val formattedPrice = formatPrice(prediction)
+            binding.tvDay.text = "Day $day"
             binding.tvPrediction.text = formattedPrice
         }
 

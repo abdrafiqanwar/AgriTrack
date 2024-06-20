@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -37,9 +38,8 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             android:text="@string/logout"/>
-
     </RelativeLayout>
-        
+
     <TextView
         android:id="@+id/tv_productId"
         android:layout_width="match_parent"
@@ -62,7 +62,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_productId"
-        app:layout_constraintBottom_toTopOf="@id/rv_search"
         android:layout_marginHorizontal="35dp">
 
         <EditText
@@ -74,6 +73,7 @@
             android:background="@drawable/edit_text"
             android:fontFamily="@font/medium"
             android:textColor="@color/black"
+            android:inputType="text"
             android:padding="10dp"/>
 
         <com.example.agritrack.view.custom.ButtonDark
@@ -83,7 +83,6 @@
             android:layout_weight="1"
             android:text="@string/search"
             android:layout_marginStart="15dp"/>
-
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -108,4 +107,51 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:visibility="gone"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/single_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text"
+        app:layout_constraintTop_toBottomOf="@id/ll_search"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        android:layout_marginHorizontal="35dp"
+        android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_item_product"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            tools:src="@tools:sample/avatars"
+            android:padding="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/semibold"
+            android:maxLines="1"
+            android:text="@string/product_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_item_product"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:fontFamily="@font/bold"
+            android:text="@string/product_category"
+            app:layout_constraintStart_toEndOf="@id/iv_item_product"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_name"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

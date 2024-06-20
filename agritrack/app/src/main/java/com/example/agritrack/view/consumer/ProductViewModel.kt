@@ -10,4 +10,6 @@ import kotlinx.coroutines.launch
 
 class ProductViewModel(private val repository: ConsumerRepository): ViewModel() {
     fun getAllProducts() = repository.getAllProducts()
+
+    fun searchProducts(query: String) = repository.searchProducts(query)
 }

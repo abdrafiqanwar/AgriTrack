@@ -1,8 +1,10 @@
 package com.example.agritrack.view.login
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -24,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
         ViewModelFactory.getInstance(this)
     }
 
+    @SuppressLint("ShowToast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -71,7 +74,6 @@ class LoginActivity : AppCompatActivity() {
                                 binding.progressBar.visibility = View.VISIBLE
                                 binding.btnLogin.visibility = View.GONE
                                 binding.ll.visibility = View.GONE
-                                binding.tvForgot.visibility = View.GONE
                             }
                             is Result.Success -> {
                                 binding.progressBar.visibility = View.GONE
@@ -97,16 +99,8 @@ class LoginActivity : AppCompatActivity() {
                                 binding.progressBar.visibility = View.GONE
                                 binding.btnLogin.visibility = View.VISIBLE
                                 binding.ll.visibility = View.VISIBLE
-                                binding.tvForgot.visibility = View.VISIBLE
 
-                                AlertDialog.Builder(this).apply {
-                                    setTitle(it.error)
-                                    setPositiveButton("Ok") { dialog, _ ->
-                                        dialog.dismiss()
-                                    }
-                                    create()
-                                    show()
-                                }
+                                Toast.makeText(this, it.error, Toast.LENGTH_LONG).show()
                             }
                         }
                     }

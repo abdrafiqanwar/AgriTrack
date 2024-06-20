@@ -51,6 +51,9 @@ class ProductInfoFragment : Fragment() {
 
         val fragmentManager = parentFragmentManager
         val addProductFragment = AddProductFragment()
+        val editProductFragment = EditProductFragment()
+
+        val bundle = Bundle()
 
         binding.tvLogout.setOnClickListener{
             userViewModel.logout()
@@ -88,6 +91,17 @@ class ProductInfoFragment : Fragment() {
                         binding.progressBar.visibility = View.GONE
 
                         adapter.submitList(it.data)
+
+                        adapter.setOnItemClickCallback(object : ProductAdapter.OnItemClickCallback {
+                            override fun onItemClicked(data: ProductsItem) {
+                                bundle.putParcelable("data", data)
+                                editProductFragment.arguments = bundle
+                                fragmentManager.commit {
+                                    addToBackStack(null)
+                                    replace(R.id.frame_container,editProductFragment, EditProductFragment::class.java.simpleName)
+                                }
+                            }
+                        })
 
                         for (i in it.data) {
                             listProduct.add(i)

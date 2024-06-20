@@ -5,13 +5,45 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
-    tools:context=".view.owner.product.AddProductFragment">
+    tools:context=".view.owner.product.EditProductFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="35dp"
         android:background="@color/background">
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/semibold"
+                android:layout_centerInParent="true"
+                android:textSize="16sp"
+                android:textColor="@color/dark"
+                android:text="Edit Product"/>
+
+            <TextView
+                android:id="@+id/tv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/back_black"
+                android:fontFamily="@font/regular"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:text="Back"/>
+
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/ll"
@@ -19,7 +51,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl"
+            android:layout_marginHorizontal="35dp"
             android:background="@drawable/edit_text"
             android:layout_marginTop="24dp"
             android:orientation="horizontal">
@@ -57,12 +90,42 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tv_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/ll"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/product_id"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
+
+        <EditText
+            android:id="@+id/et_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
+            android:padding="10dp"
+            android:background="@drawable/edit_text"
+            android:hint="@string/your_product_id"
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"
+            android:inputType="none"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
             android:layout_marginTop="8dp"
             android:text="@string/product_namee"
             android:fontFamily="@font/medium"
@@ -76,6 +139,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
             android:padding="10dp"
             android:background="@drawable/edit_text"
             android:hint="@string/your_product_name"
@@ -90,6 +154,7 @@
             app:layout_constraintTop_toBottomOf="@id/et_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
             android:layout_marginTop="4dp"
             android:text="@string/product_origin"
             android:fontFamily="@font/medium"
@@ -103,6 +168,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_origin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
             android:padding="10dp"
             android:background="@drawable/edit_text"
             android:hint="@string/your_product_origin"
@@ -117,6 +183,7 @@
             app:layout_constraintTop_toBottomOf="@id/et_origin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
             android:layout_marginTop="4dp"
             android:text="@string/product_category1"
             android:fontFamily="@font/medium"
@@ -124,12 +191,13 @@
             android:textColor="@color/darker"/>
 
         <Spinner
-            android:id="@+id/spin_category"
+            android:id="@+id/category"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tv_category"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
             android:padding="10dp"
             android:background="@drawable/edit_text"
             android:autofillHints="Select the category of product" />
@@ -138,9 +206,10 @@
             android:id="@+id/tv_composition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/spin_category"
+            app:layout_constraintTop_toBottomOf="@id/category"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
             android:layout_marginTop="4dp"
             android:text="@string/product_composition"
             android:fontFamily="@font/medium"
@@ -154,6 +223,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_composition"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
             android:padding="10dp"
             android:background="@drawable/edit_text"
             android:textColor="@color/black"
@@ -167,6 +237,7 @@
             app:layout_constraintTop_toBottomOf="@id/et_composition"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
             android:layout_marginTop="4dp"
             android:text="@string/nutrition_facts"
             android:fontFamily="@font/medium"
@@ -180,6 +251,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_nutrition_facts"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
             android:padding="10dp"
             android:background="@drawable/edit_text"
             android:textColor="@color/black"
@@ -193,8 +265,21 @@
             app:layout_constraintTop_toBottomOf="@id/et_nutrition_facts"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginHorizontal="35dp"
             android:text="@string/edit"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="24dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_nutrition_facts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            tools:visibility="visible"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

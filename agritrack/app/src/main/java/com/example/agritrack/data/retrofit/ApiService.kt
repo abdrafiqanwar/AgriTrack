@@ -1,15 +1,17 @@
 package com.example.agritrack.data.retrofit
 
 import com.example.agritrack.data.response.AddProductResponse
+import com.example.agritrack.data.response.EditProductResponse
 import com.example.agritrack.data.response.LoginResponse
 import com.example.agritrack.data.response.ProductCategoryResponse
 import com.example.agritrack.data.response.ProductResponse
-import com.example.agritrack.data.response.ProductsItem
 import com.example.agritrack.data.response.RegisterResponse
+import com.example.agritrack.data.response.ProductsItem
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface ApiService {
@@ -53,4 +55,15 @@ interface ApiService {
     suspend fun searchProduct(
         @Path ("productId") productId: String
     ) : ProductsItem
+
+    @FormUrlEncoded
+    @PUT("products/edit-product/{productId}")
+    suspend fun editProduct(
+        @Path("productId") productId: String,
+        @Field("productName") productName: String,
+        @Field("productOrigin") productOrigin: String,
+        @Field("productCategory") productCategory: String,
+        @Field("productComposition") productComposition: String,
+        @Field("nutritionFacts") nutritionFacts: String
+    ) : EditProductResponse
 }

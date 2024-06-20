@@ -1,6 +1,8 @@
 package com.example.agritrack.data.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class ProductResponse(
 
@@ -11,6 +13,7 @@ data class ProductResponse(
 	val products: List<ProductsItem> = emptyList()
 )
 
+@Parcelize
 data class ProductsItem(
 
 	@field:SerializedName("product_composition")
@@ -36,4 +39,4 @@ data class ProductsItem(
 
 	@field:SerializedName("product_category")
 	val productCategory: String? = null
-)
+) : Parcelable

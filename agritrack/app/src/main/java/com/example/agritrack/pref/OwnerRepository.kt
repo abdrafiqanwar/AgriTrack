@@ -3,6 +3,7 @@ package com.example.agritrack.pref
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.example.agritrack.data.response.AddProductResponse
+import com.example.agritrack.data.response.EditProductResponse
 import com.example.agritrack.data.response.LoginResponse
 import com.example.agritrack.data.response.ProductCategoryItem
 import com.example.agritrack.data.response.ProductResponse
@@ -62,6 +63,22 @@ class OwnerRepository private constructor(
 
             emit(Result.Success(response))
         } catch (e: HttpException) {
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, AddProductResponse::class.java)
+            val errorMessage = errorBody.message
+
+            emit(Result.Error(errorMessage.toString()))
+        }
+    }
+
+    fun editProduct(productId: String, productName: String, productOrigin: String, productCategory: String, productComposition: String, nutritionFacts: String): LiveData<Result<EditProductResponse>> = liveData {
+        emit(Result.Loading)
+
+        try {
+            val response = apiService.editProduct(productId, productName, productOrigin, productCategory, productComposition, nutritionFacts)
+
+            emit(Result.Success(response))
+        } catch (e:HttpException) {
             val jsonInString = e.response()?.errorBody()?.string()
             val errorBody = Gson().fromJson(jsonInString, AddProductResponse::class.java)
             val errorMessage = errorBody.message

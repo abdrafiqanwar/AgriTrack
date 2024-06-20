@@ -11,6 +11,10 @@ import com.example.agritrack.data.response.ProductsItem
 import com.example.agritrack.databinding.ItemProductsBinding
 
 class ProductAdapter : ListAdapter<ProductsItem, ProductAdapter.ViewHolder>(DIFF_CALLBACK) {
+    private lateinit var onItemClickCallback: OnItemClickCallback
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
     class ViewHolder(val binding: ItemProductsBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,6 +29,8 @@ class ProductAdapter : ListAdapter<ProductsItem, ProductAdapter.ViewHolder>(DIFF
             .into(holder.binding.ivItemProduct)
         holder.binding.tvItemName.text = products.productName
         holder.binding.tvDesc.text = products.productCategory
+
+        holder.itemView.setOnClickListener{ onItemClickCallback.onItemClicked(getItem(position))}
     }
 
     companion object {
@@ -36,5 +42,9 @@ class ProductAdapter : ListAdapter<ProductsItem, ProductAdapter.ViewHolder>(DIFF
                 return oldItem == newItem
             }
         }
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: ProductsItem)
     }
 }

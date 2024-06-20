@@ -1,6 +1,7 @@
 package com.example.agritrack.data.retrofit
 
 import com.example.agritrack.data.response.AddProductResponse
+import com.example.agritrack.data.response.CommodityTypeResponse
 import com.example.agritrack.data.response.EditProductResponse
 import com.example.agritrack.data.response.LoginResponse
 import com.example.agritrack.data.response.ProductCategoryResponse
@@ -66,4 +67,7 @@ interface ApiService {
         @Field("productComposition") productComposition: String,
         @Field("nutritionFacts") nutritionFacts: String
     ) : EditProductResponse
+
+    @GET("forecast/get-allTypes")
+    suspend fun getCommodityTypes() : CommodityTypeResponse
 }

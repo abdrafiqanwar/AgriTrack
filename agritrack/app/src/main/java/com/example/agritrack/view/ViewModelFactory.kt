@@ -8,6 +8,7 @@ import com.example.agritrack.pref.AuthRepository
 import com.example.agritrack.pref.ConsumerRepository
 import com.example.agritrack.pref.OwnerRepository
 import com.example.agritrack.view.login.LoginViewModel
+import com.example.agritrack.view.owner.forecasting.ForecastingViewModel
 import com.example.agritrack.view.owner.product.ProductViewModel
 import com.example.agritrack.view.register.RegisterViewModel
 
@@ -31,6 +32,9 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(com.example.agritrack.view.consumer.ProductViewModel::class.java) -> {
                 com.example.agritrack.view.consumer.ProductViewModel(consumerRepository) as T
+            }
+            modelClass.isAssignableFrom(ForecastingViewModel::class.java) -> {
+                ForecastingViewModel(ownerRepository) as T
             }
             else -> throw IllegalArgumentException("Uknown ViewModel class: " + modelClass.name)
         }

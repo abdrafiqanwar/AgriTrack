@@ -22,14 +22,16 @@
         android:fontFamily="@font/medium"/>
 
     <Spinner
-        android:id="@+id/spin_commodity_type"
+        android:id="@+id/category"
         android:layout_width="match_parent"
-        android:layout_height="38dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/tv_commodity_type"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="35dp"
-        android:background="@drawable/edit_text"/>
+        android:padding="10dp"
+        android:background="@drawable/edit_text"
+        android:autofillHints="Select the category of product" />
 
     <com.example.agritrack.view.custom.ButtonDark
         android:id="@+id/btn_submit"

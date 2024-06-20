@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,78 +7,73 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".view.consumer.SearchProductInfoActivity">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         
-        <TextView
-            android:id="@+id/tv_productId"
-            android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_productId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/product_id"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/darker"
+        android:fontFamily="@font/medium"/>
+
+    <LinearLayout
+        android:id="@+id/ll_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_productId"
+        app:layout_constraintBottom_toTopOf="@id/rv_search"
+        android:layout_marginHorizontal="35dp">
+
+        <EditText
+            android:id="@+id/et_searchWithID"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/product_id"
-            android:textSize="20sp"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginTop="24dp"
-            android:textColor="@color/darker"
-            android:fontFamily="@font/medium"/>
+            android:layout_weight="1"
+            android:hint="@string/search_product_with_id"
+            android:background="@drawable/edit_text"
+            android:fontFamily="@font/medium"
+            android:textColor="@color/black"
+            android:padding="10dp"/>
 
-        <LinearLayout
-            android:id="@+id/ll_search"
-            android:layout_width="match_parent"
+        <com.example.agritrack.view.custom.ButtonDark
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_productId"
-            app:layout_constraintBottom_toTopOf="@id/rv_search"
-            android:layout_marginHorizontal="35dp">
-            
-            <EditText
-                android:id="@+id/et_searchWithID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="@string/search_product_with_id"
-                android:background="@drawable/edit_text"
-                android:fontFamily="@font/medium"
-                android:textColor="@color/black"
-                android:padding="10dp"/>
-            
-            <com.example.agritrack.view.custom.ButtonDark
-                android:id="@+id/btn_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/search"
-                android:layout_marginStart="15dp"/>
-            
-        </LinearLayout>
+            android:layout_weight="1"
+            android:text="@string/search"
+            android:layout_marginStart="15dp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/ll_search"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginHorizontal="35dp"
-            tools:listitem="@layout/item_products"
-            tools:itemCount="5"/>
+    </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="gone"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/ll_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="35dp"
+        tools:listitem="@layout/item_products"
+        tools:itemCount="5"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    
-</androidx.core.widget.NestedScrollView>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,9 @@ package com.example.agritrack.view.owner.product
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,6 +47,7 @@ class ProductInfoFragment : Fragment() {
         binding.rvItemProducts.layoutManager = LinearLayoutManager(requireActivity())
         val adapter = ProductAdapter()
         binding.rvItemProducts.adapter = adapter
+        val listProduct = mutableListOf<ProductsItem>()
 
         val fragmentManager = parentFragmentManager
         val addProductFragment = AddProductFragment()
@@ -62,6 +66,18 @@ class ProductInfoFragment : Fragment() {
             }
         }
 
+        binding.searchView.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                adapter.submitList(listProduct.filter {
+                    it.productName!!.lowercase().contains(binding.searchView.text.toString())
+                })
+            }
+
+            override fun afterTextChanged(p0: Editable?) {}
+        })
+
         viewModel.getUserProducts().observe(requireActivity()) {
             if (it != null) {
                 when (it) {
@@ -72,6 +88,10 @@ class ProductInfoFragment : Fragment() {
                         binding.progressBar.visibility = View.GONE
 
                         adapter.submitList(it.data)
+
+                        for (i in it.data) {
+                            listProduct.add(i)
+                        }
                     }
                     is Result.Error -> {
                         binding.progressBar.visibility = View.GONE

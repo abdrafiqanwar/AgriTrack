@@ -116,14 +116,7 @@ class AddProductFragment : Fragment() {
                                 binding.progressBar.visibility = View.GONE
                                 binding.btnSubmit.visibility = View.VISIBLE
 
-                                AlertDialog.Builder(requireActivity()).apply {
-                                    setTitle(it.error)
-                                    setPositiveButton("Ok") { dialog, _ ->
-                                        dialog.dismiss()
-                                    }
-                                    create()
-                                    show()
-                                }
+                                Toast.makeText(requireActivity(), it.error, Toast.LENGTH_LONG).show()
                             }
                         }
                     }

@@ -23,6 +23,7 @@ class ProductAdapter : ListAdapter<ProductsItem, ProductAdapter.ViewHolder>(DIFF
             .load(products.image)
             .into(holder.binding.ivItemProduct)
         holder.binding.tvItemName.text = products.productName
+        holder.binding.tvDesc.text = products.productCategory
     }
 
     companion object {

@@ -4,11 +4,13 @@ import com.example.agritrack.data.response.AddProductResponse
 import com.example.agritrack.data.response.LoginResponse
 import com.example.agritrack.data.response.ProductCategoryResponse
 import com.example.agritrack.data.response.ProductResponse
+import com.example.agritrack.data.response.ProductsItem
 import com.example.agritrack.data.response.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
     @FormUrlEncoded
@@ -46,4 +48,9 @@ interface ApiService {
         @Field("productComposition") productComposition: String,
         @Field("nutritionFacts") nutritionFacts: String
     ) : AddProductResponse
+
+    @GET("products/product/{productId}")
+    suspend fun searchProduct(
+        @Path ("productId") productId: String
+    ) : ProductsItem
 }

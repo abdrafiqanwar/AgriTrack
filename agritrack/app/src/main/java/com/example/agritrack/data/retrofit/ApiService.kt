@@ -33,6 +33,9 @@ interface ApiService {
     @GET("products/get-products-categories")
     suspend fun getProductCategories() : ProductCategoryResponse
 
+    @GET("products/get-all-products")
+    suspend fun getAllProducts() : ProductResponse
+
     @FormUrlEncoded
     @POST("products/post-products")
     suspend fun postProduct(

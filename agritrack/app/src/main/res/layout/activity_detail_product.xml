@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".view.consumer.DetailProductActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_productImg"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/edit_text"
+            android:src="@drawable/insert_photo"/>
+
+        <ImageView
+            android:id="@+id/iv_productImgSmall"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/insert_photo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_productImg"
+            app:layout_constraintBottom_toBottomOf="@id/iv_productImg"
+            android:background="@drawable/edit_text"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/product_namee"
+            app:layout_constraintStart_toEndOf="@id/iv_productImgSmall"
+            app:layout_constraintTop_toBottomOf="@id/iv_productImg"
+            android:textSize="24sp"
+            android:fontFamily="@font/bold"
+            android:textColor="@color/darker"
+            android:layout_marginStart="30dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_productImgSmall"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/product_id"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
+
+        <TextView
+            android:id="@+id/et_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_product_info_consumer"
+            android:hint="@string/your_product_id"
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"/>
+
+        <TextView
+            android:id="@+id/tv_origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/product_origin"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
+
+        <TextView
+            android:id="@+id/et_origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_origin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_product_info_consumer"
+            android:hint="@string/your_product_origin"
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium" />
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_origin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/product_category1"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
+
+        <TextView
+            android:id="@+id/et_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_category"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_product_info_consumer"
+            android:hint="@string/your_product_category"
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"/>
+
+        <TextView
+            android:id="@+id/tv_composition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_category"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/product_composition"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
+
+        <TextView
+            android:id="@+id/et_composition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_composition"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_product_info_consumer"
+            android:hint="@string/your_product_composition"
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"/>
+
+        <TextView
+            android:id="@+id/tv_nutrition_facts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_composition"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/nutrition_facts"
+            android:fontFamily="@font/medium"
+            android:textSize="16sp"
+            android:textColor="@color/darker"/>
+
+        <TextView
+            android:id="@+id/et_nutrition_facts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_nutrition_facts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="35dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_product_info_consumer"
+            android:hint="@string/nutrition_facts"
+            android:textColor="@color/black"
+            android:fontFamily="@font/medium"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,5 +1,6 @@
 package com.example.agritrack.view.consumer
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -24,6 +25,11 @@ class ProductAdapter : ListAdapter<ProductsItem, ProductAdapter.ViewHolder>(DIFF
             .into(holder.binding.ivItemProduct)
         holder.binding.tvItemName.text = products.productName
         holder.binding.tvDesc.text = products.productCategory
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailProductActivity::class.java)
+            intent.putExtra("infoProduct", products)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     companion object {

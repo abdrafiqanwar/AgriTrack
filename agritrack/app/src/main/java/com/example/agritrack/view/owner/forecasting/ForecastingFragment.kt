@@ -1,14 +1,15 @@
 package com.example.agritrack.view.owner.forecasting
 
 import android.content.Intent
-import android.widget.Toast
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.agritrack.R
@@ -33,7 +34,6 @@ class ForecastingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentForecastingBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -43,7 +43,7 @@ class ForecastingFragment : Fragment() {
 
         var selectedItem = ""
 
-        viewModel.getCommodityTypes().observe(viewLifecycleOwner) {
+        viewModel.getCommodityTypes().observe(requireActivity()) {
             when (it) {
                 is Result.Loading -> {
                     binding.pbCategory.visibility = View.VISIBLE
@@ -54,6 +54,7 @@ class ForecastingFragment : Fragment() {
                     binding.category.visibility = View.VISIBLE
 
                     val list = it.data.map { commodity -> commodity.commodityType.toString() }
+                    Log.d("ForecastingFragment", "Commodity Types: ${it.data}")
 
                     val arrayAdapter = ArrayAdapter(requireActivity(), R.layout.item_dropdown, list)
                     binding.category.adapter = arrayAdapter
@@ -70,6 +71,7 @@ class ForecastingFragment : Fragment() {
         binding.category.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 selectedItem = parent?.getItemAtPosition(position).toString()
+                Log.d("ForecastingFragment", "Selected Item: $selectedItem")
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -88,7 +90,6 @@ class ForecastingFragment : Fragment() {
             loadPredictions(selectedItem)
         }
 
-        // Set the LayoutManager for the RecyclerView
         binding.rvPrediction.layoutManager = LinearLayoutManager(requireContext())
     }
 

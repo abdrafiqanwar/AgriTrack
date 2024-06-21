@@ -94,6 +94,7 @@ class OwnerRepository private constructor(
         emit(Result.Loading)
 
         try {
+            apiService = ApiConfig.getApiService(authPreference.getSession().first().token)
             val response = apiService.getCommodityTypes()
             val data = response.productCategory
 

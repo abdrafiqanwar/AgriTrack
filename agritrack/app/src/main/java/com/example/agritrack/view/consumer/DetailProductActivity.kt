@@ -35,5 +35,6 @@ class DetailProductActivity : AppCompatActivity() {
             binding.etNutritionFacts.text = info.nutritionFacts
         }
 
+        binding.tvBack.setOnClickListener { finish() }
     }
 }

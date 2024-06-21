@@ -74,7 +74,7 @@ class ProductInfoFragment : Fragment() {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 adapter.submitList(listProduct.filter {
-                    it.productName!!.lowercase().contains(binding.searchView.text.toString())
+                    it.productName!!.lowercase().contains(binding.searchView.text.toString().lowercase())
                 })
             }
 

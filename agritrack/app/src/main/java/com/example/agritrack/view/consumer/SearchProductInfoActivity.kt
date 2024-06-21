@@ -118,6 +118,9 @@ class SearchProductInfoActivity : AppCompatActivity() {
                     binding.rvSearch.visibility = View.GONE
                     binding.singleProduct.visibility = View.VISIBLE
                     displayProduct(result.data)
+                    binding.singleProduct.setOnClickListener {
+                        navigateToDetailProduct(result.data)
+                    }
                 }
                 is Result.Error -> {
                     binding.progressBar.visibility = View.GONE
@@ -125,6 +128,12 @@ class SearchProductInfoActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun navigateToDetailProduct(product: ProductsItem) {
+        val intent = Intent(this, DetailProductActivity::class.java)
+        intent.putExtra("infoProduct", product)
+        startActivity(intent)
     }
 
     private fun displayProduct(product: ProductsItem) {
